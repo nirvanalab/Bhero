@@ -1,15 +1,17 @@
 //
 //  ViewController.h
-//  SampleLP
+//  AlprSample
 //
-//  Created by Vidhur Voora on 7/21/17.
-//  Copyright © 2017 Vidhur Voora. All rights reserved.
+//  Created by Alex on 04/11/15.
+//  Copyright © 2015 alpr. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
-
-@end
+@interface ViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
+    
+    @property (weak, nonatomic) IBOutlet UIImageView *plateImageView;
+    @property (weak, nonatomic) IBOutlet UITableView *plateTableView;
+    
+    @end
 

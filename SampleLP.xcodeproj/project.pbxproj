@@ -7,25 +7,70 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02AE41E62C6B6BEAC09913DD /* libPods-Bhero.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E5BA9ABF1C1ADB4F850F9C0 /* libPods-Bhero.a */; };
+		851275C61F23015700286229 /* test2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 851275C51F23015700286229 /* test2.jpeg */; };
+		851275C81F2301D000286229 /* test3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 851275C71F2301D000286229 /* test3.jpg */; };
+		855C3BA41F26EA1E00C8B5FC /* Carvideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 855C3BA31F26AE6C00C8B5FC /* Carvideo.mp4 */; };
+		855C3BA61F27BD2100C8B5FC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 855C3BA51F27BD2100C8B5FC /* GoogleService-Info.plist */; };
 		856E71661F22F4D90041141F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 856E71651F22F4D90041141F /* main.m */; };
 		856E71691F22F4D90041141F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 856E71681F22F4D90041141F /* AppDelegate.m */; };
-		856E716C1F22F4D90041141F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 856E716B1F22F4D90041141F /* ViewController.m */; };
+		856E716C1F22F4D90041141F /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 856E716B1F22F4D90041141F /* ViewController.mm */; };
 		856E716F1F22F4D90041141F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 856E716D1F22F4D90041141F /* Main.storyboard */; };
 		856E71711F22F4D90041141F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 856E71701F22F4D90041141F /* Assets.xcassets */; };
 		856E71741F22F4D90041141F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 856E71721F22F4D90041141F /* LaunchScreen.storyboard */; };
+		856E71801F22F5060041141F /* openalpr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 856E717C1F22F5060041141F /* openalpr.framework */; };
+		856E71851F22F5450041141F /* openalpr.conf in Resources */ = {isa = PBXBuildFile; fileRef = 856E71831F22F5450041141F /* openalpr.conf */; };
+		856E71861F22F5450041141F /* runtime_data in Resources */ = {isa = PBXBuildFile; fileRef = 856E71841F22F5450041141F /* runtime_data */; };
+		856E718B1F22F8B40041141F /* Plate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 856E71881F22F8B40041141F /* Plate.mm */; };
+		856E718C1F22F8B40041141F /* PlateScanner.mm in Sources */ = {isa = PBXBuildFile; fileRef = 856E718A1F22F8B40041141F /* PlateScanner.mm */; };
+		856E718E1F22FBF30041141F /* carwithlp.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 856E718D1F22FBF30041141F /* carwithlp.jpg */; };
+		85722CE91F267ECE005C9302 /* CameraViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 85722CE81F267ECE005C9302 /* CameraViewController.mm */; };
+		85722CEC1F2680B2005C9302 /* VideoCamera.mm in Sources */ = {isa = PBXBuildFile; fileRef = 85722CEB1F2680B2005C9302 /* VideoCamera.mm */; };
+		85722CEF1F26868A005C9302 /* ImageUtils.mm in Sources */ = {isa = PBXBuildFile; fileRef = 85722CEE1F26868A005C9302 /* ImageUtils.mm */; };
+		8598CA371F27C3CD00FEA5C5 /* CaseListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8598CA361F27C3CD00FEA5C5 /* CaseListViewController.m */; };
+		8598CA3A1F27E30C00FEA5C5 /* FirebaseUploadUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 8598CA391F27E30C00FEA5C5 /* FirebaseUploadUtil.m */; };
+		BBC56D37BF38FC52F251BBDC /* libPods-SampleLP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 342EEB296C8B6D63CFB897D8 /* libPods-SampleLP.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		09F592FAD3B7CC67E5BA0AE5 /* Pods-SampleLP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleLP.release.xcconfig"; path = "Pods/Target Support Files/Pods-SampleLP/Pods-SampleLP.release.xcconfig"; sourceTree = "<group>"; };
+		0E5BA9ABF1C1ADB4F850F9C0 /* libPods-Bhero.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Bhero.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2399EE95935BA699F783DD50 /* Pods-SampleLP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SampleLP.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SampleLP/Pods-SampleLP.debug.xcconfig"; sourceTree = "<group>"; };
+		342EEB296C8B6D63CFB897D8 /* libPods-SampleLP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SampleLP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		851275C51F23015700286229 /* test2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test2.jpeg; sourceTree = "<group>"; };
+		851275C71F2301D000286229 /* test3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test3.jpg; sourceTree = "<group>"; };
+		855C3BA31F26AE6C00C8B5FC /* Carvideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Carvideo.mp4; sourceTree = "<group>"; };
+		855C3BA51F27BD2100C8B5FC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		856E71611F22F4D90041141F /* SampleLP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleLP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		856E71651F22F4D90041141F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		856E71671F22F4D90041141F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		856E71681F22F4D90041141F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		856E716A1F22F4D90041141F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		856E716B1F22F4D90041141F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		856E716B1F22F4D90041141F /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		856E716E1F22F4D90041141F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		856E71701F22F4D90041141F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		856E71731F22F4D90041141F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		856E71751F22F4D90041141F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		856E717C1F22F5060041141F /* openalpr.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = openalpr.framework; sourceTree = "<group>"; };
+		856E71831F22F5450041141F /* openalpr.conf */ = {isa = PBXFileReference; lastKnownFileType = text; name = openalpr.conf; path = openalpr.framework/openalpr.conf; sourceTree = "<group>"; };
+		856E71841F22F5450041141F /* runtime_data */ = {isa = PBXFileReference; lastKnownFileType = folder; name = runtime_data; path = openalpr.framework/runtime_data; sourceTree = "<group>"; };
+		856E71871F22F8B40041141F /* Plate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Plate.h; sourceTree = "<group>"; };
+		856E71881F22F8B40041141F /* Plate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = Plate.mm; sourceTree = "<group>"; };
+		856E71891F22F8B40041141F /* PlateScanner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlateScanner.h; sourceTree = "<group>"; };
+		856E718A1F22F8B40041141F /* PlateScanner.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = PlateScanner.mm; sourceTree = "<group>"; };
+		856E718D1F22FBF30041141F /* carwithlp.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = carwithlp.jpg; sourceTree = "<group>"; };
+		85722CE71F267ECE005C9302 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		85722CE81F267ECE005C9302 /* CameraViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = CameraViewController.mm; sourceTree = "<group>"; };
+		85722CEA1F2680B2005C9302 /* VideoCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoCamera.h; sourceTree = "<group>"; };
+		85722CEB1F2680B2005C9302 /* VideoCamera.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoCamera.mm; sourceTree = "<group>"; };
+		85722CED1F26868A005C9302 /* ImageUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtils.h; sourceTree = "<group>"; };
+		85722CEE1F26868A005C9302 /* ImageUtils.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ImageUtils.mm; sourceTree = "<group>"; };
+		8598CA351F27C3CD00FEA5C5 /* CaseListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CaseListViewController.h; sourceTree = "<group>"; };
+		8598CA361F27C3CD00FEA5C5 /* CaseListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CaseListViewController.m; sourceTree = "<group>"; };
+		8598CA381F27E30C00FEA5C5 /* FirebaseUploadUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirebaseUploadUtil.h; sourceTree = "<group>"; };
+		8598CA391F27E30C00FEA5C5 /* FirebaseUploadUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirebaseUploadUtil.m; sourceTree = "<group>"; };
+		E3C73B1A72A9B0AE70499E0F /* Pods-Bhero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bhero.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bhero/Pods-Bhero.release.xcconfig"; sourceTree = "<group>"; };
+		F7C207D4CB923F95D1FB83C3 /* Pods-Bhero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bhero.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bhero/Pods-Bhero.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +78,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				856E71801F22F5060041141F /* openalpr.framework in Frameworks */,
+				BBC56D37BF38FC52F251BBDC /* libPods-SampleLP.a in Frameworks */,
+				02AE41E62C6B6BEAC09913DD /* libPods-Bhero.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,8 +90,13 @@
 		856E71581F22F4D90041141F = {
 			isa = PBXGroup;
 			children = (
+				856E71831F22F5450041141F /* openalpr.conf */,
+				856E71841F22F5450041141F /* runtime_data */,
+				856E717C1F22F5060041141F /* openalpr.framework */,
 				856E71631F22F4D90041141F /* SampleLP */,
 				856E71621F22F4D90041141F /* Products */,
+				BB0240BF72DCE81E2BBB6652 /* Pods */,
+				DA35AFC1C6396ABE476FD75E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,15 +111,34 @@
 		856E71631F22F4D90041141F /* SampleLP */ = {
 			isa = PBXGroup;
 			children = (
+				855C3BA51F27BD2100C8B5FC /* GoogleService-Info.plist */,
+				855C3BA31F26AE6C00C8B5FC /* Carvideo.mp4 */,
+				851275C71F2301D000286229 /* test3.jpg */,
+				851275C51F23015700286229 /* test2.jpeg */,
+				856E718D1F22FBF30041141F /* carwithlp.jpg */,
 				856E71671F22F4D90041141F /* AppDelegate.h */,
 				856E71681F22F4D90041141F /* AppDelegate.m */,
+				856E71871F22F8B40041141F /* Plate.h */,
+				856E71881F22F8B40041141F /* Plate.mm */,
+				856E71891F22F8B40041141F /* PlateScanner.h */,
+				856E718A1F22F8B40041141F /* PlateScanner.mm */,
 				856E716A1F22F4D90041141F /* ViewController.h */,
-				856E716B1F22F4D90041141F /* ViewController.m */,
+				856E716B1F22F4D90041141F /* ViewController.mm */,
 				856E716D1F22F4D90041141F /* Main.storyboard */,
 				856E71701F22F4D90041141F /* Assets.xcassets */,
 				856E71721F22F4D90041141F /* LaunchScreen.storyboard */,
 				856E71751F22F4D90041141F /* Info.plist */,
 				856E71641F22F4D90041141F /* Supporting Files */,
+				85722CE71F267ECE005C9302 /* CameraViewController.h */,
+				85722CE81F267ECE005C9302 /* CameraViewController.mm */,
+				85722CEA1F2680B2005C9302 /* VideoCamera.h */,
+				85722CEB1F2680B2005C9302 /* VideoCamera.mm */,
+				85722CED1F26868A005C9302 /* ImageUtils.h */,
+				85722CEE1F26868A005C9302 /* ImageUtils.mm */,
+				8598CA351F27C3CD00FEA5C5 /* CaseListViewController.h */,
+				8598CA361F27C3CD00FEA5C5 /* CaseListViewController.m */,
+				8598CA381F27E30C00FEA5C5 /* FirebaseUploadUtil.h */,
+				8598CA391F27E30C00FEA5C5 /* FirebaseUploadUtil.m */,
 			);
 			path = SampleLP;
 			sourceTree = "<group>";
@@ -79,6 +151,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		BB0240BF72DCE81E2BBB6652 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2399EE95935BA699F783DD50 /* Pods-SampleLP.debug.xcconfig */,
+				09F592FAD3B7CC67E5BA0AE5 /* Pods-SampleLP.release.xcconfig */,
+				F7C207D4CB923F95D1FB83C3 /* Pods-Bhero.debug.xcconfig */,
+				E3C73B1A72A9B0AE70499E0F /* Pods-Bhero.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DA35AFC1C6396ABE476FD75E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				342EEB296C8B6D63CFB897D8 /* libPods-SampleLP.a */,
+				0E5BA9ABF1C1ADB4F850F9C0 /* libPods-Bhero.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -86,9 +178,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 856E71781F22F4D90041141F /* Build configuration list for PBXNativeTarget "SampleLP" */;
 			buildPhases = (
+				D7A5EDFD58FB27A2632CAA8E /* [CP] Check Pods Manifest.lock */,
 				856E715D1F22F4D90041141F /* Sources */,
 				856E715E1F22F4D90041141F /* Frameworks */,
 				856E715F1F22F4D90041141F /* Resources */,
+				4E690876DC352750D7ED25D8 /* [CP] Embed Pods Frameworks */,
+				814978A4A3C6538C4CD34C45 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -110,7 +205,7 @@
 				TargetAttributes = {
 					856E71601F22F4D90041141F = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 4GGRQAVMUJ;
+						DevelopmentTeam = EED2NPQ7J8;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -138,21 +233,83 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				856E718E1F22FBF30041141F /* carwithlp.jpg in Resources */,
+				856E71851F22F5450041141F /* openalpr.conf in Resources */,
+				856E71861F22F5450041141F /* runtime_data in Resources */,
+				851275C81F2301D000286229 /* test3.jpg in Resources */,
+				855C3BA41F26EA1E00C8B5FC /* Carvideo.mp4 in Resources */,
 				856E71741F22F4D90041141F /* LaunchScreen.storyboard in Resources */,
 				856E71711F22F4D90041141F /* Assets.xcassets in Resources */,
+				855C3BA61F27BD2100C8B5FC /* GoogleService-Info.plist in Resources */,
+				851275C61F23015700286229 /* test2.jpeg in Resources */,
 				856E716F1F22F4D90041141F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4E690876DC352750D7ED25D8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SampleLP/Pods-SampleLP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		814978A4A3C6538C4CD34C45 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SampleLP/Pods-SampleLP-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D7A5EDFD58FB27A2632CAA8E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		856E715D1F22F4D90041141F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				856E716C1F22F4D90041141F /* ViewController.m in Sources */,
+				856E718C1F22F8B40041141F /* PlateScanner.mm in Sources */,
+				856E716C1F22F4D90041141F /* ViewController.mm in Sources */,
 				856E71691F22F4D90041141F /* AppDelegate.m in Sources */,
+				85722CEF1F26868A005C9302 /* ImageUtils.mm in Sources */,
+				85722CEC1F2680B2005C9302 /* VideoCamera.mm in Sources */,
+				85722CE91F267ECE005C9302 /* CameraViewController.mm in Sources */,
+				856E718B1F22F8B40041141F /* Plate.mm in Sources */,
+				8598CA3A1F27E30C00FEA5C5 /* FirebaseUploadUtil.m in Sources */,
+				8598CA371F27C3CD00FEA5C5 /* CaseListViewController.m in Sources */,
 				856E71661F22F4D90041141F /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -273,24 +430,38 @@
 		};
 		856E71791F22F4D90041141F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2399EE95935BA699F783DD50 /* Pods-SampleLP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4GGRQAVMUJ;
+				DEVELOPMENT_TEAM = EED2NPQ7J8;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SampleLP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.vooora.SampleLP;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.vooora.Bhero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
 		856E717A1F22F4D90041141F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09F592FAD3B7CC67E5BA0AE5 /* Pods-SampleLP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4GGRQAVMUJ;
+				DEVELOPMENT_TEAM = EED2NPQ7J8;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SampleLP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.vooora.SampleLP;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.vooora.Bhero;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -314,6 +485,7 @@
 				856E717A1F22F4D90041141F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

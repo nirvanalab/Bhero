@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:SampleLP.xcodeproj">
+      location = "self:/Users/vivoora/Dev/Test Space/SampleLP/Bhero.xcodeproj">
    </FileRef>
 </Workspace>
