@@ -28,11 +28,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.targetPlate = @"HSD4671";
+    
+    self.cameraView.layer.borderColor = [[UIColor blackColor] CGColor];
+    self.cameraView.layer.borderWidth = 5.0f;
+    self.cameraView.layer.cornerRadius = 4.0f;
+    
+    self.snapshotView.layer.borderColor = [[UIColor blackColor] CGColor];
+    self.snapshotView.layer.borderWidth = 5.0f;
+    self.snapshotView.layer.cornerRadius = 4.0f;
+    
     // Do any additional setup after loading the view, typically from a nib.
     videoCamera = [[VideoCamera alloc] initWithParentView:_cameraView];
     videoCamera.delegate = self;
     videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionBack;
-    videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPresetHigh;
+    videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPresetMedium;
     videoCamera.defaultAVCaptureVideoOrientation =  AVCaptureVideoOrientationPortrait;
     videoCamera.defaultFPS = 30;
     
@@ -67,9 +78,9 @@
 - (void)processImage:(cv::Mat&)image
 {
     //process here
-    static int i = 0;
-    if ( i == 3 ) {
-        i = 0;
+    //static int i = 0;
+    //if ( i == 3 ) {
+     //   i = 0;
         [self doProcess:image];return;
         __block cv::Mat rgbImage;
         cv::cvtColor(image, rgbImage, CV_BGR2RGB);
@@ -98,14 +109,14 @@
                          
                      }
                  }
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     if ( [results count] > 0 ) {
-                         UIImage *myImage = [ImageUtils UIImageFromCVMat:rgbImage];
-                         [self.snapshotView setImage:myImage];
-                         [self.plateTableView reloadData];
-                     }
-                    
-                 });
+//                 dispatch_async(dispatch_get_main_queue(), ^{
+//                     if ( [results count] > 0 ) {
+//                         UIImage *myImage = [ImageUtils UIImageFromCVMat:rgbImage];
+//                         [self.snapshotView setImage:myImage];
+//                         [self.plateTableView reloadData];
+//                     }
+//                    
+//                 });
                  
              }
              onFailure:^(NSError * error) {
@@ -118,8 +129,8 @@
         //});
 
         
-    }
-    i++;
+   // }
+   // i++;
 }
 
 - (void)doProcess:(cv::Mat&)image
@@ -139,7 +150,16 @@
              if ( [results count] > 0 ) {
                  NSLog(@"Successss!!!!!");
                  for ( Plate *plate in results ) {
-                     [self.plates insertObject:plate atIndex:0];
+                     BOOL found = false;
+                     for ( Plate *existingPlate in self.plates ) {
+                         if ( [existingPlate.number isEqualToString:plate.number]) {
+                             found = true;
+                         }
+                     }
+                     if ( !found) {
+                         [self.plates insertObject:plate atIndex:0];
+                     }
+                     
                     
                      cv::rectangle(rgbImage,plate.p1,plate.p2,cv::Scalar(0, 255, 0),15);
                      //cv::line(rgbImage,cv::Point(0,0),cv::Point(300,300),cv::Scalar(0,0,255),5);
@@ -148,25 +168,26 @@
                  //upload file
                  UIImage *myImage = [ImageUtils UIImageFromCVMat:rgbImage];
                  NSString *name = [NSString stringWithFormat:@"Img%d.jpg",ctr++];
-                 NSString *path = [NSString stringWithFormat:@"Test/%@",name];
+                 NSString *path = [NSString stringWithFormat:@"Test2/%@",name];
                  NSString *dateString = [NSDateFormatter localizedStringFromDate:[NSDate date]
                                                                        dateStyle:NSDateFormatterShortStyle
                                                                        timeStyle:NSDateFormatterFullStyle];
-                 
+                 NSString *location = @"37.7769022,-122.4177054";
                  NSDictionary *metadata = @{
                                             @"user": @"BheroTest007"
                                             ,@"time": dateString
+                                            ,@"location": location
                                             };
                  [FirebaseUploadUtil uploadFile:myImage path:path metaData:metadata];
                  
              }
              
              dispatch_async(dispatch_get_main_queue(), ^{
-                 if ( [results count] > 0 ) {
+                 //if ( [results count] > 0 ) {
                      UIImage *myImage = [ImageUtils UIImageFromCVMat:rgbImage];
                      [self.snapshotView setImage:myImage];
                      [self.plateTableView reloadData];
-                 }
+                // }
                  
              });
              
@@ -204,7 +225,19 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
     Plate *plate = self.plates[indexPath.row];
+    if ( self.targetPlate != nil && [self.targetPlate isEqualToString:[plate number]]) {
+        cell.backgroundColor = [UIColor colorWithRed:1.0 green:165/255 blue:0 alpha:1.0];
+        cell.imageView.image = [UIImage imageNamed:@"alertIcon.png"];
+         cell.detailTextLabel.text = @"Match";
+    }
+    else {
+        cell.backgroundColor = [UIColor greenColor];
+        cell.imageView.image = [UIImage imageNamed:@"checkIcon.png"];
+        cell.detailTextLabel.text = @"No Match";
+
+    }
     cell.textLabel.text = [plate number];
+
     return cell;
 }
 

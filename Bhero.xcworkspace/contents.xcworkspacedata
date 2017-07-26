@@ -2,9 +2,12 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:/Users/vivoora/Dev/Test Space/SampleLP/SampleLP.xcodeproj">
+      location = "group:/Users/vivoora/Dev/Test Space/SampleLP/Bhero.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Bhero.xcodeproj">
    </FileRef>
 </Workspace>

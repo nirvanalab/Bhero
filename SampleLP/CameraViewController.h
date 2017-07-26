@@ -15,7 +15,7 @@
 }
 @property (nonatomic, strong) VideoCamera* videoCamera;
 @property (weak, nonatomic) IBOutlet UIImageView *snapshotView;
-
+@property NSString *targetPlate;
 
 
 @end
