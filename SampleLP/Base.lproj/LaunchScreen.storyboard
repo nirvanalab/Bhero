@@ -21,18 +21,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hero.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="nSN-BB-HKT">
-                                <rect key="frame" x="200" y="539" width="175" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="175" id="QrK-RH-s35"/>
-                                    <constraint firstAttribute="height" constant="128" id="ssj-zh-KA9"/>
-                                </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bhero.png" translatesAutoresizingMaskIntoConstraints="NO" id="lXK-uu-AEY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bhero" translatesAutoresizingMaskIntoConstraints="NO" id="lXK-uu-AEY">
                                 <rect key="frame" x="16" y="166" width="343" height="335"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="343" id="A5c-nr-KiJ"/>
                                     <constraint firstAttribute="height" constant="335" id="wOc-OI-YCR"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hero" translatesAutoresizingMaskIntoConstraints="NO" id="nSN-BB-HKT">
+                                <rect key="frame" x="200" y="539" width="175" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="175" id="QrK-RH-s35"/>
+                                    <constraint firstAttribute="height" constant="128" id="ssj-zh-KA9"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -51,7 +51,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bhero.png" width="930" height="631"/>
-        <image name="hero.jpg" width="1245" height="1185"/>
+        <image name="bhero" width="930" height="631"/>
+        <image name="hero" width="1245" height="1185"/>
     </resources>
 </document>

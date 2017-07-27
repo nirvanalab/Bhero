@@ -38,7 +38,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Used for Image processing to help identify License plate</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Used for image processing</string>
+	<string>Used for image processing to help identify</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

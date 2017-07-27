@@ -61,8 +61,11 @@
         alpr::AlprCoordinate point = plateResult.plate_points[0];
         alpr::AlprCoordinate point2 = plateResult.plate_points[2];
 
-        cv::Point p1 = cv::Point(point.x-60,point.y-60);
-        cv::Point p2 = cv::Point(point2.x+30,point2.y+30);
+        //cv::Point p1 = cv::Point(point.x-60,point.y-60);
+        //cv::Point p2 = cv::Point(point2.x+30,point2.y+30);
+        cv::Point p1 = cv::Point(point.x,point.y);
+        cv::Point p2 = cv::Point(point2.x,point2.y);
+
         [bestPlates addObject:[[Plate alloc]initWithAlprPlate:&plateResult.bestPlate roiP1:p1 roiP2:p2]];
 //                    NSLog(@"---------------------");
 //        for ( int i=0; i< 4;i++) {

@@ -14,7 +14,6 @@
 		856E71691F22F4D90041141F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 856E71681F22F4D90041141F /* AppDelegate.m */; };
 		856E716C1F22F4D90041141F /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 856E716B1F22F4D90041141F /* ViewController.mm */; };
 		856E716F1F22F4D90041141F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 856E716D1F22F4D90041141F /* Main.storyboard */; };
-		856E71711F22F4D90041141F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 856E71701F22F4D90041141F /* Assets.xcassets */; };
 		856E71741F22F4D90041141F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 856E71721F22F4D90041141F /* LaunchScreen.storyboard */; };
 		856E71801F22F5060041141F /* openalpr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 856E717C1F22F5060041141F /* openalpr.framework */; };
 		856E71851F22F5450041141F /* openalpr.conf in Resources */ = {isa = PBXBuildFile; fileRef = 856E71831F22F5450041141F /* openalpr.conf */; };
@@ -45,6 +44,9 @@
 		8598CA5E1F29189700FEA5C5 /* paper_bg2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8598CA5D1F29189700FEA5C5 /* paper_bg2.jpg */; };
 		8598CA601F2918CC00FEA5C5 /* orange_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8598CA5F1F2918CC00FEA5C5 /* orange_bg.jpg */; };
 		8598CA631F2919C100FEA5C5 /* OptInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8598CA621F2919C100FEA5C5 /* OptInViewController.m */; };
+		8598CA651F292FDD00FEA5C5 /* medal.png in Resources */ = {isa = PBXBuildFile; fileRef = 8598CA641F292FDD00FEA5C5 /* medal.png */; };
+		8598CA671F29303F00FEA5C5 /* closeBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 8598CA661F29303F00FEA5C5 /* closeBtn.png */; };
+		8598CA691F2960E000FEA5C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8598CA681F2960E000FEA5C5 /* Assets.xcassets */; };
 		BBC56D37BF38FC52F251BBDC /* libPods-SampleLP.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 342EEB296C8B6D63CFB897D8 /* libPods-SampleLP.a */; };
 /* End PBXBuildFile section */
 
@@ -62,7 +64,6 @@
 		856E716A1F22F4D90041141F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		856E716B1F22F4D90041141F /* ViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		856E716E1F22F4D90041141F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		856E71701F22F4D90041141F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		856E71731F22F4D90041141F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		856E71751F22F4D90041141F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		856E717C1F22F5060041141F /* openalpr.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = openalpr.framework; sourceTree = "<group>"; };
@@ -104,6 +105,9 @@
 		8598CA5F1F2918CC00FEA5C5 /* orange_bg.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = orange_bg.jpg; sourceTree = "<group>"; };
 		8598CA611F2919C100FEA5C5 /* OptInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptInViewController.h; sourceTree = "<group>"; };
 		8598CA621F2919C100FEA5C5 /* OptInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptInViewController.m; sourceTree = "<group>"; };
+		8598CA641F292FDD00FEA5C5 /* medal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = medal.png; sourceTree = "<group>"; };
+		8598CA661F29303F00FEA5C5 /* closeBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeBtn.png; sourceTree = "<group>"; };
+		8598CA681F2960E000FEA5C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3C73B1A72A9B0AE70499E0F /* Pods-Bhero.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bhero.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bhero/Pods-Bhero.release.xcconfig"; sourceTree = "<group>"; };
 		F7C207D4CB923F95D1FB83C3 /* Pods-Bhero.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bhero.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Bhero/Pods-Bhero.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,6 +150,9 @@
 		856E71631F22F4D90041141F /* Bhero */ = {
 			isa = PBXGroup;
 			children = (
+				8598CA681F2960E000FEA5C5 /* Assets.xcassets */,
+				8598CA661F29303F00FEA5C5 /* closeBtn.png */,
+				8598CA641F292FDD00FEA5C5 /* medal.png */,
 				8598CA4E1F28506100FEA5C5 /* defaultLP.png */,
 				8598CA4C1F284C9400FEA5C5 /* viewBg.png */,
 				8598CA4A1F28498300FEA5C5 /* videoIcon.png */,
@@ -175,7 +182,6 @@
 				856E716A1F22F4D90041141F /* ViewController.h */,
 				856E716B1F22F4D90041141F /* ViewController.mm */,
 				856E716D1F22F4D90041141F /* Main.storyboard */,
-				856E71701F22F4D90041141F /* Assets.xcassets */,
 				856E71721F22F4D90041141F /* LaunchScreen.storyboard */,
 				856E71751F22F4D90041141F /* Info.plist */,
 				856E71641F22F4D90041141F /* Supporting Files */,
@@ -294,10 +300,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				8598CA5A1F29172D00FEA5C5 /* paper_bg.jpg in Resources */,
+				8598CA671F29303F00FEA5C5 /* closeBtn.png in Resources */,
 				8598CA451F28476A00FEA5C5 /* btn_bg2.png in Resources */,
 				8598CA4D1F284C9400FEA5C5 /* viewBg.png in Resources */,
 				8598CA491F2848EE00FEA5C5 /* cameraIconSmall.png in Resources */,
 				856E718E1F22FBF30041141F /* carwithlp.jpg in Resources */,
+				8598CA691F2960E000FEA5C5 /* Assets.xcassets in Resources */,
 				856E71851F22F5450041141F /* openalpr.conf in Resources */,
 				856E71861F22F5450041141F /* runtime_data in Resources */,
 				8598CA431F28473600FEA5C5 /* btn_bg1.png in Resources */,
@@ -306,11 +314,11 @@
 				8598CA5E1F29189700FEA5C5 /* paper_bg2.jpg in Resources */,
 				8598CA411F28435D00FEA5C5 /* hero.jpg in Resources */,
 				8598CA5C1F29187A00FEA5C5 /* mustard_bg.jpg in Resources */,
-				856E71711F22F4D90041141F /* Assets.xcassets in Resources */,
 				8598CA511F2856E300FEA5C5 /* alertIcon.png in Resources */,
 				8598CA3D1F28057300FEA5C5 /* GoogleService-Info.plist in Resources */,
 				8598CA601F2918CC00FEA5C5 /* orange_bg.jpg in Resources */,
 				851275C61F23015700286229 /* test2.jpeg in Resources */,
+				8598CA651F292FDD00FEA5C5 /* medal.png in Resources */,
 				8598CA4F1F28506100FEA5C5 /* defaultLP.png in Resources */,
 				8598CA3F1F28422600FEA5C5 /* bhero.png in Resources */,
 				8598CA531F2856EC00FEA5C5 /* checkIcon.png in Resources */,

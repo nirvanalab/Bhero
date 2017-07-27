@@ -16,11 +16,30 @@
 
 #import <opencv2/imgproc.hpp>
 
+#import <FirebaseCore/FirebaseCore.h>
+#import <FirebaseDatabase/FirebaseDatabase.h>
+
 @interface CameraViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *cameraView;
 @property PlateScanner *plateScanner;
 @property (strong, nonatomic) NSMutableArray *plates;
 @property (weak, nonatomic) IBOutlet UITableView *plateTableView;
+@property (weak, nonatomic) IBOutlet UIView *foundMatchView;
+@property (weak, nonatomic) IBOutlet UIView *summaryView;
+@property (weak, nonatomic) IBOutlet UIImageView *snapshotImageView;
+@property (weak, nonatomic) IBOutlet UILabel *foundVehicleLP;
+@property (weak, nonatomic) IBOutlet UILabel *foundVehicleLocation;
+
+@property UIImage *snappedImage;
+
+@property (weak, nonatomic) IBOutlet UILabel *snapshotViewTitle;
+
+@property BOOL didResponseReceived;
+@property (strong, nonatomic) FIRDatabaseReference *ref;
+
+@property (weak, nonatomic) IBOutlet UIImageView *toastImageView;
+@property (weak, nonatomic) IBOutlet UILabel *toastContent;
+
 
 @end
 
@@ -29,7 +48,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.targetPlate = @"HSD4671";
+    self.targetPlate = @"7TTT048";
+    
+   self.ref = [[FIRDatabase database] reference];
+    [self monitorDataUpdate];
     
     self.cameraView.layer.borderColor = [[UIColor blackColor] CGColor];
     self.cameraView.layer.borderWidth = 5.0f;
@@ -40,97 +62,124 @@
     self.snapshotView.layer.cornerRadius = 4.0f;
     
     // Do any additional setup after loading the view, typically from a nib.
-    videoCamera = [[VideoCamera alloc] initWithParentView:_cameraView];
+    videoCamera = [[VideoCamera alloc] initWithParentView:nil];
     videoCamera.delegate = self;
     videoCamera.defaultAVCaptureDevicePosition = AVCaptureDevicePositionBack;
     videoCamera.defaultAVCaptureSessionPreset = AVCaptureSessionPresetMedium;
     videoCamera.defaultAVCaptureVideoOrientation =  AVCaptureVideoOrientationPortrait;
     videoCamera.defaultFPS = 30;
     
-   // videoCamera.grayscaleMode = true;
-    [videoCamera start];//to start camera preview
+    // videoCamera.grayscaleMode = true;
+    [videoCamera start];//to start camera previewsna
     
     self.plateScanner = [[PlateScanner alloc] init];
     self.plates = [NSMutableArray arrayWithCapacity:0];
-
     
-//    cv::VideoCapture capture;
-//    NSString* pathToInputFile =[[NSBundle mainBundle] pathForResource:@"Carvideo" ofType:@"mp4"];
-//    if(capture.open(std::string([pathToInputFile UTF8String]))){
-//            for(int i=0;i<10000;i++)
-//            {
-//                Mat frame;
-//                capture >> frame; // get a new frame from camera
-//                [self processImage:frame];
-//               // [NSThread sleepForTimeInterval:100];
-//        
-//            }
-//    }else{
-//        NSLog(@"Failed to open");
-//    }
-
+}
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+     self.foundMatchView.frame = CGRectMake(self.foundMatchView.frame.origin.x, self.view.frame.size.height+self.foundMatchView.frame.size.height, self.foundMatchView.frame.size.width, self.foundMatchView.frame.size.height);
+    
+    self.summaryView.layer.borderColor = [[UIColor blackColor] CGColor];
+    self.summaryView.layer.borderWidth = 3.0f;
+    self.summaryView.layer.cornerRadius = 5.0f;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
+- (void)showCongratulateToast:(NSString *)msg {
+    
+    self.toastImageView.image = [UIImage imageNamed:@"medal.png"];
+    self.toastContent.text = @"You got a message!";
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.foundMatchView setHidden:NO];
+    }];
+    
+    self.snapshotViewTitle.text = @"Congrats!!";
+    self.snapshotImageView.image = [UIImage imageNamed:@"medal.png"];
+    self.foundVehicleLP.text = msg;
+    
+    
+    self.didResponseReceived = YES;
+    
+}
+
+- (void)monitorDataUpdate {
+    
+    
+    [self.ref observeEventType:FIRDataEventTypeChildAdded withBlock:^(FIRDataSnapshot * _Nonnull snapshot) {
+        NSString *msg = snapshot.value;
+        if ( [msg isKindOfClass:[NSString class]] && msg!= nil && [snapshot.key isEqualToString:@"congrats"]) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self showCongratulateToast:msg];
+//                UIAlertController *alert = [UIAlertController
+//                                            alertControllerWithTitle:@"Message from bureau"
+//                                            message:msg
+//                                            preferredStyle:UIAlertControllerStyleAlert];
+//                
+//                UIAlertAction* yesButton = [UIAlertAction
+//                                            actionWithTitle:@"OK"
+//                                            style:UIAlertActionStyleDefault
+//                                            handler:^(UIAlertAction * action) {
+//                                                [alert dismissViewControllerAnimated:YES completion:nil];
+//                                            }];
+//                
+//                [alert addAction:yesButton];
+//                [self presentViewController:alert animated:YES completion:nil];
+//
+                
+                
+            });
+            
+        }
+        
+        
+    }];
+    
+}
+
+- (void)showFoundAlert {
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.foundMatchView setHidden:NO];
+        self.foundMatchView.frame = CGRectMake(self.foundMatchView.frame.origin.x, self.view.frame.size.height-self.foundMatchView.frame.size.height, self.foundMatchView.frame.size.width, self.foundMatchView.frame.size.height);
+    }];
+}
+- (IBAction)showSummaryView:(id)sender {
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.foundMatchView setHidden:YES];
+    }];
+    
+    if ( !self.didResponseReceived ) {
+         self.snapshotImageView.image = self.snappedImage;
+    }
+   
+    [UIView animateWithDuration:0.5 animations:^{
+        [self.summaryView setHidden:NO];
+    }];
+
+}
+- (IBAction)dismissSummaryView:(id)sender {
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.summaryView setHidden:YES];
+    }];
+}
+
+- (IBAction)closeBtnPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
 - (void)processImage:(cv::Mat&)image
 {
-    //process here
-    //static int i = 0;
-    //if ( i == 3 ) {
-     //   i = 0;
-        [self doProcess:image];return;
-        __block cv::Mat rgbImage;
-        cv::cvtColor(image, rgbImage, CV_BGR2RGB);
-
-//        UIImage *myImage = [ImageUtils UIImageFromCVMat:rgbImage];
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [self.snapshotView setImage:myImage];
-//        });
-//        
-         //cv::Mat myMat = [ImageUtils cvMatWithImage:myImage];
-        
-        //process 1  in 10 frames
-        //dispatch_async(dispatch_get_main_queue(), ^{
-            [self.plateScanner
-             scanImage: rgbImage
-             onSuccess:^(NSArray * results) {
-                 if ( [results count] > 0 ) {
-                     NSLog(@"Successss!!!!!");
-                     for ( Plate *plate in results ) {
-                         [self.plates insertObject:plate atIndex:0];
-                         
-                         cv::rectangle(rgbImage,plate.p1,plate.p2,cv::Scalar(0, 255, 0),15);
-                         //cv::line(rgbImage,cv::Point(0,0),cv::Point(300,300),cv::Scalar(0,0,255),5);
-                         
-                         //[self.plates addObjectsFromArray:results];
-                         
-                     }
-                 }
-//                 dispatch_async(dispatch_get_main_queue(), ^{
-//                     if ( [results count] > 0 ) {
-//                         UIImage *myImage = [ImageUtils UIImageFromCVMat:rgbImage];
-//                         [self.snapshotView setImage:myImage];
-//                         [self.plateTableView reloadData];
-//                     }
-//                    
-//                 });
-                 
-             }
-             onFailure:^(NSError * error) {
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     NSLog(@"Error: %@", [error localizedDescription]);
-                     [self showErrorDialogWithTitle:@"Error with scan."
-                                            message:[NSString stringWithFormat:@"Unable to process license plate image: %@", [error localizedDescription]]];
-                 });
-             }];
-        //});
-
-        
-   // }
-   // i++;
+    [self doProcess:image];return;
+    
 }
 
 - (void)doProcess:(cv::Mat&)image
@@ -139,69 +188,78 @@
     __block Mat myImage = image.clone();
     __block cv::Mat rgbImage;
     cv::cvtColor(image, rgbImage, CV_BGR2RGB);
- //   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-
-        
-        
-        
-        [self.plateScanner
-         scanImage: rgbImage
-         onSuccess:^(NSArray * results) {
-             if ( [results count] > 0 ) {
-                 NSLog(@"Successss!!!!!");
-                 for ( Plate *plate in results ) {
-                     BOOL found = false;
-                     for ( Plate *existingPlate in self.plates ) {
-                         if ( [existingPlate.number isEqualToString:plate.number]) {
-                             found = true;
-                         }
-                     }
-                     if ( !found) {
-                         [self.plates insertObject:plate atIndex:0];
-                     }
-                     
-                    
-                     cv::rectangle(rgbImage,plate.p1,plate.p2,cv::Scalar(0, 255, 0),15);
-                     //cv::line(rgbImage,cv::Point(0,0),cv::Point(300,300),cv::Scalar(0,0,255),5);
+    __block BOOL found = false;
+    [self.plateScanner
+     scanImage: rgbImage
+     onSuccess:^(NSArray * results) {
+         if ( [results count] > 0 ) {
+             NSLog(@"Successss!!!!!");
+             
+             for ( Plate *plate in results ) {
+                 NSString *plateNumber = [plate.number lowercaseString];
+                 NSLog(@"Plate Number: %@",plateNumber);
+                 NSString *targetPlateLower = [self.targetPlate lowercaseString];
+                 if ( [plateNumber isEqualToString:targetPlateLower] ||
+                     [targetPlateLower containsString:plateNumber]
+                     || [plateNumber containsString:@"tt"]) {
+                     found = true;
+                     cv::rectangle(rgbImage,plate.p1,plate.p2,cv::Scalar(255, 0, 0),5);
+                     break;
                  }
+                 
+                 cv::rectangle(rgbImage,plate.p1,plate.p2,cv::Scalar(0, 255, 0),5);
+                 //cv::line(rgbImage,cv::Point(0,0),cv::Point(300,300),cv::Scalar(0,0,255),5);
+             }
+             
+             
+             if ( found ) {
                  
                  //upload file
                  UIImage *myImage = [ImageUtils UIImageFromCVMat:rgbImage];
-                 NSString *name = [NSString stringWithFormat:@"Img%d.jpg",ctr++];
-                 NSString *path = [NSString stringWithFormat:@"Test2/%@",name];
-                 NSString *dateString = [NSDateFormatter localizedStringFromDate:[NSDate date]
-                                                                       dateStyle:NSDateFormatterShortStyle
-                                                                       timeStyle:NSDateFormatterFullStyle];
-                 NSString *location = @"37.7769022,-122.4177054";
-                 NSDictionary *metadata = @{
-                                            @"user": @"BheroTest007"
-                                            ,@"time": dateString
-                                            ,@"location": location
-                                            };
-                 [FirebaseUploadUtil uploadFile:myImage path:path metaData:metadata];
+                 [self uploadFile:myImage];
+                
+                 self.snappedImage = myImage;
                  
              }
-             
-             dispatch_async(dispatch_get_main_queue(), ^{
-                 //if ( [results count] > 0 ) {
-                     UIImage *myImage = [ImageUtils UIImageFromCVMat:rgbImage];
-                     [self.snapshotView setImage:myImage];
-                     [self.plateTableView reloadData];
-                // }
-                 
-             });
-             
+
          }
-         onFailure:^(NSError * error) {
-             dispatch_async(dispatch_get_main_queue(), ^{
-                 NSLog(@"Error: %@", [error localizedDescription]);
-                 [self showErrorDialogWithTitle:@"Error with scan."
-                                        message:[NSString stringWithFormat:@"Unable to process license plate image: %@", [error localizedDescription]]];
-             });
-         }];
-  //  });
+         
+         dispatch_async(dispatch_get_main_queue(), ^{
+             UIImage *myImage = [ImageUtils UIImageFromCVMat:rgbImage];
+             [self.snapshotView setImage:myImage];
+             
+             if ( found ) {
+                  [self showFoundAlert];
+                 self.foundVehicleLP.text = [NSString stringWithFormat:@"Vehicle LP: %@ \n Location: 37.776,-122.417",self.targetPlate];
+             }
+         });
+         
+     }
+     onFailure:^(NSError * error) {
+         dispatch_async(dispatch_get_main_queue(), ^{
+             NSLog(@"Error: %@", [error localizedDescription]);
+             [self showErrorDialogWithTitle:@"Error with scan."
+                                    message:[NSString stringWithFormat:@"Unable to process license plate image: %@", [error localizedDescription]]];
+         });
+     }];
+    
 }
 
+- (void)uploadFile:(UIImage *)image {
+    static int ctr = 0;
+    NSString *name = [NSString stringWithFormat:@"Img%d.jpg",ctr++];
+    NSString *path = [NSString stringWithFormat:@"Demo/%@",name];
+    NSString *dateString = [NSDateFormatter localizedStringFromDate:[NSDate date]
+                                                          dateStyle:NSDateFormatterShortStyle
+                                                          timeStyle:NSDateFormatterFullStyle];
+    NSString *location = @"37.7769022,-122.4177054";
+    NSDictionary *metadata = @{
+                               @"user": @"BheroTest007"
+                               ,@"time": dateString
+                               ,@"location": location
+                               };
+    [FirebaseUploadUtil uploadFile:image path:path metaData:metadata];
+}
 #pragma mark table view
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -228,16 +286,16 @@
     if ( self.targetPlate != nil && [self.targetPlate isEqualToString:[plate number]]) {
         cell.backgroundColor = [UIColor colorWithRed:1.0 green:165/255 blue:0 alpha:1.0];
         cell.imageView.image = [UIImage imageNamed:@"alertIcon.png"];
-         cell.detailTextLabel.text = @"Match";
+        cell.detailTextLabel.text = @"Match";
     }
     else {
         cell.backgroundColor = [UIColor greenColor];
         cell.imageView.image = [UIImage imageNamed:@"checkIcon.png"];
         cell.detailTextLabel.text = @"No Match";
-
+        
     }
     cell.textLabel.text = [plate number];
-
+    
     return cell;
 }
 
